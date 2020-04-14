@@ -19,8 +19,12 @@ const App = () => {
   return (
     <div className={Style.container}>
       <Cards data={data} />
+      <br/>
       <Chart data={data} country={country} />
+      <br/>
       <CountryPicker handleCountryChange={handleCountryChange} data={data} />
+
+      <p>Made with love by Hamza :D</p>
     </div>
   );
 };
