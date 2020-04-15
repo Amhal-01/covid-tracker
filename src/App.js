@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Cards, Chart, CountryPicker } from "./components";
-import Style from "./App.module.css";
 import { fetchData } from "./api";
+import "bootstrap/dist/css/bootstrap.min.css";
+import img from "./assets/img/COVID19.png";
+import styles from './App.module.css';
 
 const App = () => {
   const getData = async (_country) => {
@@ -17,14 +19,22 @@ const App = () => {
     setCountry(_country);
   };
   return (
-    <div className={Style.container}>
-      <Cards data={data} />
-      <br/>
-      <Chart data={data} country={country} />
-      <br/>
-      <CountryPicker handleCountryChange={handleCountryChange} data={data} />
-
-      <p>Made with love by Hamza :D</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+            <img src={img} className={styles.image} alt=""/>
+          <Cards data={data} />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <CountryPicker
+            handleCountryChange={handleCountryChange}
+            data={data}
+          />
+          <Chart data={data} country={country} />
+        </div>
+      </div>
     </div>
   );
 };
